@@ -19,15 +19,13 @@ int main() {
         if (number % 2 != 0) {
           sum += number;
         }
-      }
-      else {
-        size++;
+      }else {
+        ++size;
         std::cout << "Range of numbers should beat from " << MINRANGE << " to " << MAXRENGE << "\n";
       }
     }
       std::cout << "Sum of odd numbers = " << sum;
-  }
-  else {
+  }else {
     std::cout << "Range should beat from " << MINSIZE << " to " << MAXSIZE << "\n";
   }
   return 0;
