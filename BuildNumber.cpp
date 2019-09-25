@@ -21,10 +21,8 @@ int main() {
       unsigned int num_C;
       std::cin >> num_C;
       if (num_C >= MIN && num_C <= MAX) {
-        unsigned long new_num;
-        new_num = num_A * 10000 + num_B * 1000 + num_C * 100;
-        new_num % 3 == 0 ? std::cout << new_num << " = This number is divided by 3 " :
-        std::cout << new_num << " = This number is not divisible by 3";
+        auto new_num = num_A * 10000 + num_B * 1000 + num_C * 100;
+        std::cout << "This number " << new_num << " is " << new_num % 3 == 0 ? " " : "not " << "divided by 3 \n";
       }else {
         std::cout << "Number C not range ";
       }
