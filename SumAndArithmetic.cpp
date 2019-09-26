@@ -9,8 +9,8 @@ int main() {
   std::cout
       << "Calculate the sum and arithmetic mean of numbers in the number \n"
          "Input number - from "
-      << MIN << " to " << MAX << "\n";
-  "But number should not be 0 \n";
+      << MIN << " to " << MAX << "\n"
+      << "But number should not be 0 \n";
   std::cin >> number;
   if (number != 0) {
     if (number >= MIN && number <= MAX) {
