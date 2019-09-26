@@ -9,7 +9,7 @@ int main() {
   unsigned short size;
   std::cin >> size;
   if (size >= MINSIZE && size <= MAXSIZE) {
-    long sum = 0;
+    long long sum = 0;
     const short MINRANGE = -60;
     const short MAXRENGE = 90;
     std::cout << "Enter numbers from " << MINRANGE << " to " << MAXRENGE
