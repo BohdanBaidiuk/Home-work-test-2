@@ -22,9 +22,8 @@ int main(int argc, char const *argv[]) {
   unsigned int num_second = 0;
   for (unsigned int i = number; i > 0; --i) {
     if (number % i == 0) {
-      unsigned int sum;
+      unsigned int sum {};
       num_first = i;
-      sum = 0;
       if (num_first >= 10) {
         while (num_first > 0) {
           sum += num_first % 10;
