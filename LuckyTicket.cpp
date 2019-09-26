@@ -8,7 +8,6 @@ int main() {
   unsigned int number;
   const unsigned short CYCLE = 3;
   std::cin >> number;
-  unsigned num = number;
   if (number >= MIN && number <= MAX) {
     unsigned comparingNumA = 0;
     unsigned comparingNumB = 0;
