@@ -3,7 +3,7 @@
 enum { DELTA = 32 };
 
 void Find_Diget(char *begin) {
-  if (nullptr == begin && *begin == '\0') {
+  if (nullptr == begin || *begin == '\0') {
     return;
   }
   bool is_digit_present = false;
@@ -17,11 +17,10 @@ void Find_Diget(char *begin) {
   if (is_digit_present) {
     std::cout << "Is Digit = ";
     while (*begin != '\0') {
-      auto ch = *begin;
+      auto ch = *begin++;
       if (ch >= '0' && ch <= '9') {
         std::cout << ch;
       }
-      ++begin;
     }
   } else {
     std::cout << "No digits in string \n";
@@ -29,7 +28,7 @@ void Find_Diget(char *begin) {
 }
 
 void To_Upper(char *begin) {
-  if (nullptr == begin && *begin == '\0') {
+  if (nullptr == begin || *begin == '\0') {
     return;
   }
   while (*begin != '\0') {
@@ -44,7 +43,7 @@ void To_Upper(char *begin) {
 }
 
 void To_lower(char *begin) {
-  if (nullptr == begin && *begin == '\0') {
+  if (nullptr == begin || *begin == '\0') {
     return;
   }
   while (*begin != '\0') {
@@ -59,15 +58,13 @@ void To_lower(char *begin) {
 }
 
 void Revers_String(char *begin, char *end) {
-  if (begin == nullptr && end != nullptr && begin != end) {
+  if (begin == nullptr || end != nullptr || begin != end) {
     return;
   }
   while (begin < end) {
     char tmp = *begin;
-    *begin = *end;
-    *end = tmp;
-    ++begin;
-    --end;
+    *begin++ = *end;
+    *end-- = tmp;
   }
 }
 
@@ -88,11 +85,10 @@ int main() {
   std::cout << "Enter STRING = ";
   std::cin >> symbol;
   size_t length = 0;
-  while (symbol[++length] != '\0') {
+  while (symbol[length++] != '\0') {
     ;
   }
   char *begin = symbol;
-  char *end = &symbol[length - 1];
   if (length <= SIZE) {
     std::cout << "Select a function by the following commands : \n";
     std::cout << "---1 = Find number\n"
@@ -112,7 +108,7 @@ int main() {
       To_lower(symbol);
       break;
     case REVERS:
-      Revers_String(symbol, end);
+      Revers_String(symbol,(symbol + (length - 1)));
       std::cout << symbol;
       break;
     default:
