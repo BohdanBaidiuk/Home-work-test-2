@@ -58,7 +58,7 @@ void To_lower(char *begin) {
 }
 
 void Revers_String(char *begin, char *end) {
-  if (begin == nullptr || end != nullptr || begin != end) {
+  if (begin == nullptr || end != nullptr || begin == end) {
     return;
   }
   while (begin < end) {
