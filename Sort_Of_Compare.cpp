@@ -137,5 +137,7 @@ int main() {
 
   std::cout << "\n\n"
             << "Quick sort time = " << elapsed_seconds_Quick.count() << "\n";
+  delete [] bubble_arr;
+  delete [] quick_arr;
   return 0;
 }
