@@ -2,21 +2,8 @@
 
 void cipher(char *begin, unsigned short code) {
   while (*begin != '\0') {
-    if (*begin >= 'A' && *begin <= 'Z') {
-      if ((*begin + code) > 'Z') {
-        *begin = (*begin + code) - 26;
-      } else {
-        *begin = *begin + code;
-      }
-    } else if (*begin >= 'a' && *begin <= 'z') {
-      if ((*begin + code) > 'z') {
-        *begin = (*begin + code) - 26;
-      } else {
-        *begin = *begin + code;
-      }
-
-    } else {
-      *begin;
+    if (*begin >= 'A' && *begin <= 'z') {
+      *begin = *begin + code;
     }
     ++begin;
   }
@@ -24,23 +11,7 @@ void cipher(char *begin, unsigned short code) {
 
 void cipher_off(char *begin, unsigned short code) {
   while (*begin != '\0') {
-    if (*begin >= 'A' && *begin <= 'Z') {
-      if ((*begin - code) < 'A') {
-        *begin = (*begin - code) + 26;
-      } else {
-        *begin = *begin - code;
-      }
-
-    } else if (*begin >= 'a' && *begin <= 'z') {
-      if ((*begin - code) < 'a') {
-        *begin = (*begin - code) + 26;
-      } else {
-        *begin = *begin - code;
-      }
-
-    } else {
-      *begin;
-    }
+    *begin = *begin - code;
     ++begin;
   }
 }
@@ -50,30 +21,29 @@ int main() {
   char text[255]{};
   std::cout << "Please enter Text for coding her = \n";
   std::cin >> text;
-  char *begin = text;
   unsigned short key;
-  const unsigned short min_key = 1;
-  const unsigned short max_key = 25;
+  const unsigned short MIN_KEY = 1;
+  const unsigned short MAX_KEY = 111;
   do {
     std::cout << "Please input key for coding = \n";
     std::cin >> key;
-    if (key >= min_key && key <= max_key) {
+    if (key >= MIN_KEY && key <= MAX_KEY) {
       break;
     }
     std::cout << "not";
   } while (true);
-  cipher(begin, key);
+  cipher(text, key);
   std::cout << text << "\n";
-  key = {};
+  key = 0;
   do {
     std::cout << "Please input key for unblock coding = \n";
     std::cin >> key;
-    if (key >= min_key && key <= max_key) {
+    if (key >= MIN_KEY && key <= MAX_KEY) {
       break;
     }
     std::cout << "not";
   } while (true);
-  cipher_off(begin, key);
+  cipher_off(text, key);
   std::cout << text;
   return 0;
 }
